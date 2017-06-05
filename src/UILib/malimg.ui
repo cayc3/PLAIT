@@ -23,13 +23,19 @@
    </size>
   </property>
   <property name="windowTitle">
+<!--
    <string>二进制文件图像分类</string>
+-->
+   <string>Binary File Image Classification</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
+<!--
       <string>二进文件制图像</string>
+-->
+      <string>Binary File Image</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
@@ -48,7 +54,10 @@
       <item>
        <widget class="QGroupBox" name="groupBox_3">
         <property name="title">
+<!--
          <string>机器学习分类结果</string>
+-->
+         <string>Classification Results of Machine Learning</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
@@ -81,7 +90,10 @@
    <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
+<!--
       <string>相似图像对比</string>
+-->
+      <string>Similar Image Comparison</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout" stretch="3">
       <item>
@@ -93,7 +105,10 @@
          </size>
         </property>
         <property name="title">
+<!--
          <string>相似的图像</string>
+-->
+         <string>Similar Images</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
