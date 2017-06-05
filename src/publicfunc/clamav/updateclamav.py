@@ -14,7 +14,8 @@ URL_MAIN = "http://database.clamav.net/main.cvd"
 URL_DAILY = "http://database.clamav.net/daily.cvd"
 
 '''
-连接上述URL并下载clamav所需文件
+#连接上述URL并下载clamav所需文件
+Connect the URLs Above and Download the ClamAV Files Required
 '''
 def download_file(url):
     """
@@ -50,7 +51,8 @@ def download_file(url):
     outfile.close()
 
 '''
-解压文件
+#解压文件
+Extracting Files
 '''
 def zlib_decompress(path, outpath):
     d = zlib.decompressobj(zlib.MAX_WBITS + 16)
@@ -72,8 +74,10 @@ def zlib_decompress(path, outpath):
     os.remove(path)
 
 '''
-更新特征规则
-规则为base+daily
+#更新特征规则
+Updating Feature Rules
+#规则为base+daily
+Rules for base+daily
 '''
 def update_signatures(url, download):
     # Download CVD file if necessary
