@@ -1,10 +1,10 @@
 #coding=utf-8
 
 import sys, os
-from PyQt4 import QtCore
+from PyQt5 import QtCore
 import sqlite3
 sys.path.append("..")
-from publicfunc.fileanalyze import PEFileAnalize, getFileInfo
+from publicfunc.fileanalyze import FileAnalize, getFileInfo
 
 class FileDetail(QtCore.QThread):
     finishSignal = QtCore.pyqtSignal(list)
@@ -14,7 +14,7 @@ class FileDetail(QtCore.QThread):
         self.filename = str(filename)#.encode('cp936')
 
     def run(self):
-        # 获取文件基本内容
+        # 获取文件基本内容/Get the Basic Contents of a File
         useless, baseinfo = getFileInfo(self.filename)
         self.finishSignal.emit(baseinfo)
 
@@ -27,15 +27,15 @@ class PEFileInfo(QtCore.QThread):
         self.filename = str(filename)#.encode('cp936')
         self.md5      = str(md5)
 
-    # 处理PE节
+    # 处理PE节/Processing PE Section
     def getSetInfo(self):
-        pefile  = PEFileAnalize(self.filename)
+        pefile  = FileAnalize(self.filename)
         setinfo = pefile.checkFileSections()
         return setinfo
-    
-    # 处理导入表
+
+    # 处理导入表/Processing Import Tables
     def getImpInfo(self):
-        pefile  = PEFileAnalize(self.filename)
+        pefile  = FileAnalize(self.filename)
         impinfo = pefile.checkFileImports()
         return impinfo
 
@@ -51,8 +51,8 @@ class PEFileInfo(QtCore.QThread):
             sqlconn.commit()
             sqlcursor = sqlcursor.fetchone()
             if sqlcursor:
-                impinfo = dict(eval(sqlcursor[3])) # 获取导入表信息
-                setinfo = list(eval(sqlcursor[2])) # 获取PE节信息
+                impinfo = dict(eval(sqlcursor[3])) # 获取导入表信息/Get Import table Information
+                setinfo = list(eval(sqlcursor[2])) # 获取PE节信息/Get PE Section Information
                 self.importSignal.emit(impinfo)
                 self.sectionSignal.emit(setinfo)
             else:
