@@ -39,7 +39,10 @@
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
+<!--
           <string>扫描页面</string>
+-->
+          <string>Scanning</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <property name="leftMargin">
@@ -73,7 +76,10 @@
                  </size>
                 </property>
                 <property name="title">
+<!--
                  <string>参数设置</string>
+-->
+                 <string>Settings</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_6">
                  <property name="spacing">
@@ -117,7 +123,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>扫描规则：</string>
+-->
+                      <string>Rules：</string>
                      </property>
                     </widget>
                    </item>
@@ -130,7 +139,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>全选</string>
+-->
+                      <string>All</string>
                      </property>
                      <property name="checked">
                       <bool>false</bool>
@@ -146,7 +158,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>PE分析</string>
+-->
+                      <string>PE</string>
                      </property>
                     </widget>
                    </item>
@@ -159,7 +174,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>检查加密</string>
+-->
+                      <string>Encryption</string>
                      </property>
                     </widget>
                    </item>
@@ -172,7 +190,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>文件查壳</string>
+-->
+                      <string>ShellCode</string>
                      </property>
                     </widget>
                    </item>
@@ -185,7 +206,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>自定义规则</string>
+-->
+                      <string>Custom</string>
                      </property>
                     </widget>
                    </item>
@@ -198,7 +222,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>启用白名单</string>
+-->
+                      <string>Whitelist</string>
                      </property>
                     </widget>
                    </item>
@@ -230,7 +257,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>文件类型：</string>
+-->
+                      <string>Type：</string>
                      </property>
                     </widget>
                    </item>
@@ -243,7 +273,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>全选</string>
+-->
+                      <string>All</string>
                      </property>
                      <property name="checked">
                       <bool>false</bool>
@@ -288,7 +321,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>脚本</string>
+-->
+                      <string>Script</string>
                      </property>
                     </widget>
                    </item>
@@ -301,7 +337,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>压缩包</string>
+-->
+                      <string>Archive</string>
                      </property>
                     </widget>
                    </item>
@@ -314,7 +353,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>多媒体</string>
+-->
+                      <string>Multimedia</string>
                      </property>
                     </widget>
                    </item>
@@ -327,7 +369,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>asm文件</string>
+-->
+                      <string>Assembly</string>
                      </property>
                     </widget>
                    </item>
@@ -356,14 +401,20 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>高级设置：</string>
+-->
+                      <string>Advanced：</string>
                      </property>
                     </widget>
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEditAdvSet">
                      <property name="text">
+<!--
                       <string>当前未设置</string>
+-->
+                      <string>Not Currently Set</string>
                      </property>
                     </widget>
                    </item>
@@ -393,7 +444,10 @@
                  </size>
                 </property>
                 <property name="title">
+<!--
                  <string>操作区域</string>
+-->
+                 <string>Operations</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_5">
                  <property name="spacing">
@@ -425,7 +479,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>扫描起始：</string>
+-->
+                      <string>Start：</string>
                      </property>
                     </widget>
                    </item>
@@ -455,7 +512,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>扫描策略：</string>
+-->
+                      <string>Selection：</string>
                      </property>
                     </widget>
                    </item>
@@ -468,16 +528,25 @@
                       </size>
                      </property>
                      <property name="toolTip">
+<!--
                       <string>设置扫描策略</string>
+-->
+                      <string>Choose Scan Policy</string>
                      </property>
                      <item>
                       <property name="text">
+<!--
                        <string>文件夹扫描</string>
+-->
+                       <string>Folders</string>
                       </property>
                      </item>
                      <item>
                       <property name="text">
+<!--
                        <string>多文件扫描</string>
+-->
+                       <string>Multiple Files</string>
                       </property>
                      </item>
                     </widget>
@@ -507,7 +576,10 @@
                       </size>
                      </property>
                      <property name="toolTip">
+<!--
                       <string>文件夹扫描深度设置，-1时全部扫描</string>
+-->
+                      <string>Depth Settings，-1 for All </string>
                      </property>
                      <property name="statusTip">
                       <string/>
@@ -516,14 +588,20 @@
                       <string/>
                      </property>
                      <property name="text">
+<!--
                       <string>扫描深度：</string>
+-->
+                      <string>Depth：</string>
                      </property>
                     </widget>
                    </item>
                    <item>
                     <widget class="QSpinBox" name="spinBox">
                      <property name="toolTip">
+<!--
                       <string>文件夹扫描深度设置，-1时全部扫描</string>
+-->
+                      <string>Depth Settings，-1 for All</string>
                      </property>
                      <property name="suffix">
                       <string/>
@@ -565,7 +643,10 @@
                       </size>
                      </property>
                      <property name="text">
+<!--
                       <string>选择目标</string>
+-->
+                      <string>Target</string>
                      </property>
                     </widget>
                    </item>
@@ -585,7 +666,10 @@
                    <item>
                     <widget class="QPushButton" name="PB_Start">
                      <property name="text">
+<!--
                       <string>开  始</string>
+-->
+                      <string>Start</string>
                      </property>
                     </widget>
                    </item>
@@ -605,7 +689,10 @@
                    <item>
                     <widget class="QPushButton" name="PB_End">
                      <property name="text">
+<!--
                       <string>结  束</string>
+-->
+                      <string>Stop</string>
                      </property>
                     </widget>
                    </item>
@@ -642,7 +729,10 @@
                  </size>
                 </property>
                 <property name="title">
+<!--
                  <string>显示策略</string>
+-->
+                 <string>Display</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_7">
                  <property name="spacing">
@@ -665,7 +755,10 @@
                    <item>
                     <widget class="QLabel" name="label_7">
                      <property name="text">
+<!--
                       <string>模糊查询：</string>
+-->
+                      <string>Value：</string>
                      </property>
                     </widget>
                    </item>
@@ -679,7 +772,10 @@
                    <item>
                     <widget class="QLabel" name="label_8">
                      <property name="text">
+<!--
                       <string>查询列名：</string>
+-->
+                      <string>Search：</string>
                      </property>
                     </widget>
                    </item>
@@ -699,17 +795,17 @@
                      </property>
                      <item>
                       <property name="text">
-                       <string>name</string>
+                       <string>Name</string>
                       </property>
                      </item>
                      <item>
                       <property name="text">
-                       <string>type</string>
+                       <string>Type</string>
                       </property>
                      </item>
                      <item>
                       <property name="text">
-                       <string>md5</string>
+                       <string>MD5</string>
                       </property>
                      </item>
                     </widget>
@@ -717,7 +813,10 @@
                    <item>
                     <widget class="QPushButton" name="PB_Select">
                      <property name="text">
+<!--
                       <string>查询</string>
+-->
+                      <string>Search</string>
                      </property>
                     </widget>
                    </item>
@@ -741,7 +840,10 @@
                    <item>
                     <widget class="QPushButton" name="PB_Recover">
                      <property name="text">
+<!--
                       <string>恢  复</string>
+-->
+                      <string>Recovery</string>
                      </property>
                     </widget>
                    </item>
@@ -761,7 +863,10 @@
                    <item>
                     <widget class="QPushButton" name="PB_Store">
                      <property name="text">
+<!--
                       <string>保  存</string>
+-->
+                      <string>Save</string>
                      </property>
                     </widget>
                    </item>
@@ -781,7 +886,10 @@
                    <item>
                     <widget class="QPushButton" name="PB_Clear">
                      <property name="text">
+<!--
                       <string>清  空</string>
+-->
+                      <string>Clear</string>
                      </property>
                     </widget>
                    </item>
@@ -872,7 +980,7 @@
               </column>
               <column>
                <property name="text">
-                <string>AnalysisDate</string>
+                <string>Analysis Date</string>
                </property>
               </column>
               <column>
@@ -893,7 +1001,10 @@
         </widget>
         <widget class="QWidget" name="tab_2">
          <attribute name="title">
+<!--
           <string>扫描报告</string>
+-->
+          <string>Output</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
@@ -917,14 +1028,20 @@
             <item>
              <widget class="QPushButton" name="PB_KeepLog">
               <property name="text">
+<!--
                <string>保存报告</string>
+-->
+               <string>Save Output</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="PB_ClearLog">
               <property name="text">
+<!--
                <string>清空内容</string>
+-->
+               <string>Clear Output</string>
               </property>
              </widget>
             </item>
@@ -934,7 +1051,10 @@
         </widget>
         <widget class="QWidget" name="tab_3">
          <attribute name="title">
+<!--
           <string>查看历史</string>
+-->
+          <string>History</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_9" stretch="0,3">
           <item>
@@ -945,7 +1065,10 @@
             <item>
              <widget class="QGroupBox" name="groupBox_2">
               <property name="title">
+<!--
                <string>显示策略</string>
+-->
+               <string>Display</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_10">
                <item>
@@ -953,7 +1076,10 @@
                  <item>
                   <widget class="QLabel" name="label_9">
                    <property name="text">
+<!--
                     <string>模糊查询：</string>
+-->
+                    <string>Value：</string>
                    </property>
                   </widget>
                  </item>
@@ -967,7 +1093,10 @@
                  <item>
                   <widget class="QLabel" name="label_10">
                    <property name="text">
+<!--
                     <string>查询列名：</string>
+-->
+                    <string>Search：</string>
                    </property>
                   </widget>
                  </item>
@@ -981,17 +1110,17 @@
                    </property>
                    <item>
                     <property name="text">
-                     <string>name</string>
+                     <string>Name</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>type</string>
+                     <string>Type</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>md5</string>
+                     <string>MD5</string>
                     </property>
                    </item>
                   </widget>
@@ -1016,7 +1145,10 @@
                  <item>
                   <widget class="QPushButton" name="PB_SelectHistory">
                    <property name="text">
+<!--
                     <string>查询记录</string>
+-->
+                    <string>Search</string>
                    </property>
                   </widget>
                  </item>
@@ -1062,7 +1194,7 @@
             </column>
             <column>
              <property name="text">
-              <string>mark</string>
+              <string>Mark</string>
              </property>
             </column>
             <column>
@@ -1103,7 +1235,10 @@
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
+<!--
      <string>管理</string>
+-->
+     <string>Management</string>
     </property>
     <addaction name="AC_Check"/>
     <addaction name="separator"/>
@@ -1111,14 +1246,20 @@
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
+<!--
      <string>文件</string>
+-->
+     <string>File</string>
     </property>
     <addaction name="AC_CheckML"/>
     <addaction name="AC_EditWL"/>
    </widget>
    <widget class="QMenu" name="menu_4">
     <property name="title">
+<!--
      <string>帮助</string>
+-->
+     <string>Help</string>
     </property>
     <addaction name="AC_Info"/>
     <addaction name="AC_About"/>
@@ -1131,42 +1272,66 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="AC_Check">
    <property name="text">
+<!--
     <string>检查配置</string>
+-->
+    <string>Check Configurations</string>
    </property>
   </action>
   <action name="AC_Setting">
    <property name="text">
+<!--
     <string>软件设置</string>
+-->
+    <string>Settings</string>
    </property>
   </action>
   <action name="AC_CheckML">
    <property name="text">
+<!--
     <string>机器学习验证</string>
+-->
+    <string>Machine Learning</string>
    </property>
   </action>
   <action name="AC_Info">
    <property name="text">
+<!--
     <string>版本信息</string>
+-->
+    <string>Version</string>
    </property>
   </action>
   <action name="AC_About">
    <property name="text">
+<!--
     <string>关于软件</string>
+-->
+    <string>About</string>
    </property>
   </action>
   <action name="AC_Author">
    <property name="text">
+<!--
     <string>联系作者</string>
+-->
+    <string>Contact Author</string>
    </property>
   </action>
   <action name="AC_EditWL">
    <property name="text">
+<!--
     <string>修改白名单</string>
+-->
+    <string>Edit Whitelist</string>
    </property>
   </action>
   <action name="action_9">
    <property name="text">
+<!--
     <string>软件设置</string>
+-->
+    <string>Settings</string>
    </property>
   </action>
  </widget>
