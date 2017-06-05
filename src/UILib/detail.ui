@@ -11,7 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
+<!--
    <string>详细信息</string>
+-->
+   <string>More Information</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -22,7 +25,10 @@
      <item>
       <widget class="QGroupBox" name="groupBox">
        <property name="title">
+<!--
         <string>文件信息</string>
+-->
+        <string>File Information</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <property name="spacing">
@@ -47,7 +53,10 @@
           </property>
           <widget class="QWidget" name="tab">
            <attribute name="title">
+<!--
             <string>基本信息</string>
+-->
+            <string>Basic Information</string>
            </attribute>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
@@ -57,7 +66,10 @@
           </widget>
           <widget class="QWidget" name="tab_4">
            <attribute name="title">
+<!--
             <string>导入表信息</string>
+-->
+            <string>Importing Table Information</string>
            </attribute>
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
@@ -73,7 +85,10 @@
           </widget>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
+<!--
             <string>PE节信息</string>
+-->
+            <string>PE Section Information</string>
            </attribute>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
