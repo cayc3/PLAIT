@@ -14,7 +14,10 @@
    </rect>
   </property>
   <property name="windowTitle">
+<!--
    <string>机器学习验证</string>
+-->
+   <string>Machine Learning Validation</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
    <item>
@@ -28,7 +31,10 @@
         </sizepolicy>
        </property>
        <property name="text">
+<!--
         <string>分类器：</string>
+-->
+        <string>Classifier：</string>
        </property>
       </widget>
      </item>
@@ -36,17 +42,34 @@
       <widget class="QComboBox" name="comboBox">
        <item>
         <property name="text">
+<!--
          <string>随机森林</string>
+-->
+         <string>Stochastic Gradient Descent</string>
         </property>
        </item>
        <item>
         <property name="text">
+<!--
          <string>K近邻</string>
+-->
+         <string>Nearest Neighbors</string>
         </property>
        </item>
        <item>
         <property name="text">
+<!--
          <string>支持向量机</string>
+-->
+         <string>Support Vector Machines</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+<!--
+	 <string>朴素贝叶斯</string>
+-->
+         <string>Naive Bayes</string>
         </property>
        </item>
       </widget>
@@ -67,14 +90,20 @@
      <item>
       <widget class="QPushButton" name="PB_ConfMatrix">
        <property name="text">
+<!--
         <string>混淆矩阵</string>
+-->
+        <string>Confusion Matrix</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="PB_CrossVad">
        <property name="text">
+<!--
         <string>交叉验证</string>
+-->
+        <string>Model-Selection</string>
        </property>
       </widget>
      </item>
@@ -105,7 +134,10 @@
       </sizepolicy>
      </property>
      <property name="text">
+<!--
       <string>交叉验证结果：</string>
+-->
+      <string>Model-Selection：</string>
      </property>
     </widget>
    </item>
