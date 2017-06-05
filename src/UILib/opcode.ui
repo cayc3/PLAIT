@@ -11,7 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
+<!--
    <string>操作码分类</string>
+-->
+   <string>OpCode Classification</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -27,7 +30,10 @@
        </size>
       </property>
       <property name="title">
+<!--
        <string>操作码序列</string>
+-->
+       <string>OpCode Sequences</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
@@ -57,20 +63,29 @@
      </widget>
      <widget class="QGroupBox" name="groupBox">
       <property name="title">
+<!--
        <string>分类结果</string>
+-->
+       <string>Classification Results</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QLabel" name="label">
          <property name="text">
+<!--
           <string>随机森林训练结论： </string>
+-->
+          <string>Results of Random Forest Training： </string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_2">
          <property name="text">
+<!--
           <string>弱分类器概率分布： </string>
+-->
+          <string>Probability Distribution of Weak Classifier： </string>
          </property>
         </widget>
        </item>
