@@ -1,6 +1,6 @@
 #coding=utf-8
 
-from PyQt4 import QtCore
+from PyQt5 import QtCore
 from sklearn.ensemble import RandomForestClassifier as RF
 from collections import *
 import pandas as pd
@@ -17,7 +17,7 @@ class ValidationResult(QtCore.QThread):
     def __init__(self, filename, parent=None):
         super(ValidationResult, self).__init__(parent)
         self.filename = str(filename)#.encode('cp936')
-    
+
     def run(self):
         pass
 
@@ -28,41 +28,44 @@ class OpcodeNgram(QtCore.QThread):
     def __init__(self, filename, parent=None):
         super(OpcodeNgram, self).__init__(parent)
         self.filename = str(filename)#.encode('cp936')
-        self.trainlabel = None # 训练子集标签
-        self.trainfeatu = None # 训练子集特征
-    
+        self.trainlabel = None # 训练子集标签/Training Subset Labels
+        self.trainfeatu = None # 训练子集特征/Training Subset Features
+
     '''
-    获取训练分类标签信息
-    操作码频数合并训练特征
+    #获取训练分类标签信息
+    Get Training Category Labels Information
+    #操作码频数合并训练特征
+    Frequency Merging Training Features of OpCode
     '''
     def getClassifyLabel(self, t3gram):
         self.trainfeatu = pd.read_csv("./datafiles/3gramfeature.csv")
         self.trainlabel = pd.read_csv('./datafiles/subtrainLabels.csv')
-        # 取csv文件的第一行中除去id列，并转化为list
+        # 取csv文件的第一行中除去id列，并转化为list/Drop ID Columns in the First Row of the CSV File and Convert to List
         features = self.trainfeatu.columns.tolist()[1:]
         newdata = {}
         for feature in features:
-            feature = tuple(eval(feature)) # 转""数据为元组
+            feature = tuple(eval(feature)) # 转""数据为元组/ Go "" Data is Tuples
             if feature in t3gram.keys():
                 # print "get"
-                newdata[feature] = t3gram[feature] # 传递统计数值
+                newdata[feature] = t3gram[feature] # Passing Statistic Values
             else:
                 newdata[feature] = 0
-        newdata = sorted(newdata.items()) # 以特征元组规定顺序排序
+        newdata = sorted(newdata.items()) # 以特征元组规定顺序排序/Ordered by Feature Tuples
         return newdata
 
     '''
-    获取汇编代码中的操作码序列
+    #获取汇编代码中的操作码序列
+    Gets the OpCode Sequences in the Assembly Code
     '''
     def getOpcodeSequence(self, filename):
         opcode_seq = []
-        p = re.compile(r'\s([a-fA-F0-9]{2}\s)+\s+([a-z]+)') # 需要再匹配一个制表符
+        p = re.compile(r'\s([a-fA-F0-9]{2}\s)+\s+([a-z]+)') # 需要再匹配一个制表符/Need to Match Another Tab
         with open(filename) as f:
             for line in f:
-                if line.startswith(".text"): # or line.startswith(".code") or line.startswith("CODE"): # 指定解析代码行
+                if line.startswith(".text"): # or line.startswith(".code") or line.startswith("CODE"): # 指定解析代码行/Specifying Parsing Lines of Code
                     m = re.findall(p,line)
                     if m:
-                        # print m # 结果匹配opcode及前一个制表符16进制数据
+                        # print m # 结果匹配opcode及前一个制表符16进制数据/Result Matches OpCode and Previous Tab 16 Data
                         # eg:[('FF\t', 'jmp')]
                         opc = m[0][1]
                         if opc != "align":
@@ -70,11 +73,16 @@ class OpcodeNgram(QtCore.QThread):
         return opcode_seq
 
     '''
-    N元语法化汇编操作码序列
-    @ops:操作码
-    @n:n元化参数
-    操作码序列为元组形式
-    返回组合后counter的字典
+    #N元语法化汇编操作码序列
+    N-Meta-Grammatical Compilation Operation Code Sequences
+    #@ops:操作码
+    @ops:OpCode
+    #@n:n元化参数
+    @n:nMeta-Parameter
+    #操作码序列为元组形式
+    OpCode Sequences as Tuple Form
+    #返回组合后counter的字典
+    Returns a Dictionary of Counter
     '''
     def getOpcodeNgram(self, ops, n=3):
         opngramlist = [tuple(ops[i:i+n]) for i in range(len(ops)-n)]
@@ -82,8 +90,10 @@ class OpcodeNgram(QtCore.QThread):
         return opngram
 
     '''
-    矩阵化操作码序列
-    @opngram:{操作码序列-频数}字典
+    #矩阵化操作码序列
+    Matrix Operation Code Sequences
+    #@opngram:{操作码序列-频数}字典
+    @opngram:{OpCode Sequence-Frequency}Dictionary
     '''
     def opSequece2Matrix(self, opngram):
         finallist = []
