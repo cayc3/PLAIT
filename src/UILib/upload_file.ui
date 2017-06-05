@@ -23,7 +23,10 @@
    </size>
   </property>
   <property name="windowTitle">
+<!--
    <string>上传样本</string>
+-->
+   <string>Upload Sample</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -45,7 +48,10 @@
        </size>
       </property>
       <property name="title">
+<!--
        <string>文件信息</string>
+-->
+       <string>File Information</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <property name="leftMargin">
@@ -76,7 +82,10 @@
           </size>
          </property>
          <property name="title">
+<!--
           <string>检测结果</string>
+-->
+          <string>Test Results</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <property name="spacing">
@@ -99,7 +108,10 @@
             <item>
              <widget class="QLabel" name="label_4">
               <property name="text">
+<!--
                <string>网络响应：</string>
+-->
+               <string>Network Response：</string>
               </property>
              </widget>
             </item>
@@ -119,7 +131,10 @@
             <item>
              <widget class="QLabel" name="label_5">
               <property name="text">
+<!--
                <string>返回代码：</string>
+-->
+               <string>Return Code：</string>
               </property>
              </widget>
             </item>
@@ -139,7 +154,10 @@
             <item>
              <widget class="QLabel" name="label">
               <property name="text">
+<!--
                <string>检测率：</string>
+-->
+               <string>Detection Rate：</string>
               </property>
              </widget>
             </item>
@@ -155,12 +173,18 @@
             </attribute>
             <column>
              <property name="text">
+<!--
               <string>查杀引擎</string>
+-->
+              <string>Killing Engine</string>
              </property>
             </column>
             <column>
              <property name="text">
+<!--
               <string>扫描结果</string>
+-->
+              <string>Scan Results</string>
              </property>
             </column>
            </widget>
@@ -170,7 +194,10 @@
             <item>
              <widget class="QLabel" name="label_2">
               <property name="text">
+<!--
                <string>网页链接：</string>
+-->
+               <string>Web Links：</string>
               </property>
              </widget>
             </item>
@@ -203,7 +230,10 @@
           </size>
          </property>
          <property name="title">
+<!--
           <string>上传信息</string>
+-->
+          <string>Upload Information</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_6">
           <property name="leftMargin">
@@ -236,7 +266,10 @@
             <item>
              <widget class="QLabel" name="label_3">
               <property name="text">
+<!--
                <string>等待队列：</string>
+-->
+               <string>Waiting Queues：</string>
               </property>
              </widget>
             </item>
@@ -268,7 +301,10 @@
           <item>
            <widget class="QPushButton" name="PB_2Queue">
             <property name="text">
+<!--
              <string>加入上传队列</string>
+-->
+             <string>Add to Upload Queue</string>
             </property>
            </widget>
           </item>
@@ -288,7 +324,10 @@
           <item>
            <widget class="QPushButton" name="PB_Upload">
             <property name="text">
+<!--
              <string>上传文件</string>
+-->
+             <string>Uploading Files</string>
             </property>
            </widget>
           </item>
