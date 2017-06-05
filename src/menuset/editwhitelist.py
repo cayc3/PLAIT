@@ -1,6 +1,6 @@
 #coding=utf-8
 
-from PyQt4 import QtGui, QtCore, Qt
+from PyQt5 import QtGui, QtCore, QtWidgets
 import os, sys, time
 sys.path.append("..")
 from UILib.whitelist import Ui_Dialog
@@ -9,10 +9,10 @@ from globalset import FilePath
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-class Dialog(QtGui.QDialog):
+class Dialog(QtWidgets.QDialog):
 
     def __init__(self, parent=None):
-        QtGui.QWidget.__init__(self, parent)
+        QtWidgets.QWidget.__init__(self, parent)
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
 
@@ -27,7 +27,8 @@ class Dialog(QtGui.QDialog):
         self.apy.clicked.connect(self.close)
 
     '''
-    获取白名单内容
+    #获取白名单内容
+    Get Whitelist Content
     '''
     def getWhiteListInfo(self):
         f = open(self.name, "r")
@@ -46,7 +47,7 @@ class Dialog(QtGui.QDialog):
             self.ok.setEnabled(False)
         except IOError, e:
             print e.args[0]
-            
+
     def quitWhiteListSet(self):
         f = open(self.name)
         f.readline()
@@ -56,7 +57,7 @@ class Dialog(QtGui.QDialog):
 
 if __name__ == "__main__":
 
-    window = QtGui.QApplication(sys.argv)
+    window = QtWidgets.QApplication(sys.argv)
     thiswindow = Dialog()
     thiswindow.show()
 
