@@ -11,7 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
+<!--
    <string>白名单设置</string>
+-->
+   <string>Whitelist Settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -39,14 +42,20 @@
      <item>
       <widget class="QPushButton" name="PB_Apply">
        <property name="text">
+<!--
         <string>应  用</string>
+-->
+        <string>Apply</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="PB_OK">
        <property name="text">
+<!--
         <string>确  定</string>
+-->
+        <string>OK</string>
        </property>
       </widget>
      </item>
