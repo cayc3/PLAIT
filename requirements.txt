@@ -1,7 +1,7 @@
 GitPython
 numpy
 pandas
-pefile
+filebytes
 Pillow
 python-magic
 scikit-learn
