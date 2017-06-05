@@ -2,59 +2,63 @@
 
 import sys, os
 import yara
-from PyQt4 import QtCore, QtGui
+from PyQt5 import QtCore
+from PyQt5.QtCore import Qt, pyqtSignal
 import sqlite3
 
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
 def is_file_packed(filename):
-    i = 0 # 统计数量
-    ret = [] # 保存结果
-    # 没有编译过yara规则时
+    i = 0 # 统计数量/Number of Statistics
+    ret = [] # 保存结果/Save Results
+    # 没有编译过yara规则时/When the Yara Rule is Not Compiled
     if not os.path.exists("rules_compiled/Packers"):
-        os.mkdir("rules_compiled/Packers")
-        for n in os.listdir("rules/Packers"):
-            try:
-                rule = yara.compile("rules/Packers/" + n)
-                rule.save("rules_compiled/Packers/" + n)
-                rule = yara.load("rules_compiled/Packers/" + n)
-                m = rule.match(filename)
-                if m:
-                    ret += m
-            except:
-                print "internal error"
-    # 已经生成了yara规则的二进制文件
+	os.mkdir("rules_compiled/Packers")
+	for n in os.listdir("rules/Packers/"):
+            rule = yara.compile("rules/Packers/" + n)
+            rule.save("rules_compiled/Packers/" + n)
+            rule = yara.load("rules_compiled/Packers/" + n)
+            m = rule.match(filename)
+            if m:
+                ret += m
+    # 已经生成了yara规则的二进制文件/Binary File for Yara Rule has Been Generated
     else:
-        print "use compiled file"
+        print "Using compiled file ..."
         for n in os.listdir("rules_compiled/Packers/"):
-            try:
-                rule = yara.load("rules_compiled/Packers/" + n)
-                m = rule.match(filename)
-                if m:
-                    ret += m
-            except:
-                print "yara internal error"
+            rule = yara.load("rules_compiled/Packers/" + n)
+            m = rule.match(filename)
+            if m:
+                ret += m
     return ret
 
-
 def is_malicious_document(filename):
+    #i = 0 # 统计数量/Number of Statistics
+    ret = [] # 保存结果/Save Results
     if not os.path.exists("rules_compiled/Malicious_Documents"):
         os.mkdir("rules_compiled/Malicious_Documents")
-    for n in os.listdir("rules/Malicious_Documents"):
-        rule = yara.compile("rules/Malicious_Documents/" + n)
-        rule.save("rules_compiled/Malicious_Documents/" + n)
-        rule = yara.load("rules_compiled/Malicious_Documents/" + n)
-        m = rule.match(filename)
-        if m:
-            return m
-
+	for n in os.listdir("rules/Malicious_Documents/"):
+            rule = yara.compile("rules/Malicious_Documents/" + n)
+            rule.save("rules_compiled/Malicious_Documents/" + n)
+            rule = yara.load("rules_compiled/Malicious_Documents/" + n)
+            m = rule.match(filename)
+            if m:
+                return m
+    else:
+        print "Using compiled file ..."
+        for n in os.listdir("rules_compiled/Malicious_Documents/"):
+            rule = yara.load("rules_compiled/Malicious_Documents/" + n)
+            m = rule.match(filename)
+            if m:
+                ret += m
+    return ret
 
 def is_antidb_antivm(filename):
-    ret = []
+    #i = 0 # 统计数量/Number of Statistics
+    ret = [] # 保存结果/Save Results
     if not os.path.exists("rules_compiled/Antidebug_AntiVM"):
         os.mkdir("rules_compiled/Antidebug_AntiVM")
-        for n in os.listdir("rules/Antidebug_AntiVM"):
+        for n in os.listdir("rules/Antidebug_AntiVM/"):
             rule = yara.compile("rules/Antidebug_AntiVM/" + n)
             rule.save("rules_compiled/Antidebug_AntiVM/" + n)
             rule = yara.load("rules_compiled/Antidebug_AntiVM/" + n)
@@ -62,27 +66,29 @@ def is_antidb_antivm(filename):
             if m:
                 ret += m
     else:
-        for n in os.listdir("rules_compiled/Antidebug_AntiVM"):
+        print "Using compiled file ..."
+        for n in os.listdir("rules_compiled/Antidebug_AntiVM/"):
             rule = yara.load("rules_compiled/Antidebug_AntiVM/" + n)
             m = rule.match(filename)
             if m:
                 ret += m
     return ret
 
-
 def check_crypto(filename):
-    ret = []
+    #i = 0 # 统计数量/Number of Statistics
+    ret = [] # 保存结果/Save Results
     if not os.path.exists("rules_compiled/Crypto"):
         os.mkdir("rules_compiled/Crypto")
-        for n in os.listdir("rules/Crypto"):
+        for n in os.listdir("rules/Crypto/"):
             rule = yara.compile("rules/Crypto/" + n)
-            rule.save("rules_compiled/Crypto/" + n)
+            rule.save("rules_compiled/Crypto/"  + n)
             rule = yara.load("rules_compiled/Crypto/" + n)
             m = rule.match(filename)
             if m:
                 ret += m
     else:
-        for n in os.listdir("rules_compiled/Crypto"):
+        print "Using compiled file ..."
+        for n in os.listdir("rules_compiled/Crypto/"):
             rule = yara.load("rules_compiled/Crypto/" + n)
             m = rule.match(filename)
             if m:
@@ -90,10 +96,11 @@ def check_crypto(filename):
     return ret
 
 def is_webshell(filename):
-    ret = []
+    #i = 0 # 统计数量/Number of Statistics
+    ret = [] # 保存结果/Save Results
     if not os.path.exists("rules_compiled/Webshells"):
         os.mkdir("rules_compiled/Webshells")
-        for n in os.listdir("rules/Webshells"):
+        for n in os.listdir("rules/Webshells/"):
             rule = yara.compile("rules/Webshells/" + n)
             rule.save("rules_compiled/Webshells/" + n)
             rule = yara.load("rules_compiled/Webshells/" + n)
@@ -101,7 +108,8 @@ def is_webshell(filename):
             if m:
                 ret += m
     else:
-        for n in os.listdir("rules_compiled/Webshells"):
+        print "Using compiled file ..."
+        for n in os.listdir("rules_compiled/Webshells/"):
             rule = yara.load("rules_compiled/Webshells/" + n)
             m = rule.match(filename)
             if m:
@@ -109,60 +117,65 @@ def is_webshell(filename):
     return ret
 
 def is_malware(filename):
-    ret = []
+    #i = 0 # 统计数量/Number of Statistics
+    ret = [] # 保存结果/Save Results
     if not os.path.exists("rules_compiled/malware"):
         os.mkdir("rules_compiled/malware")
         for n in os.listdir("rules/malware/"):
-            if not os.path.isdir(n):
-                try:
-                    rule = yara.compile("rules/malware/" + n)
-                    rule.save("rules_compiled/malware/" + n)
-                    rule = yara.load("rules_compiled/malware/" + n)
-                    m = rule.match(filename)
-                    if m:
-                        ret += m
-                except:
-                    pass  # internal fatal error or warning
-            else:
-                pass
-    else:
-        print "use compiled file"
-        for n in os.listdir("rules_compiled/malware/"):
-            try:
+            if not os.path.isdir("rules/malware/" + n):
+                rule = yara.compile("rules/malware/" + n)
+                rule.save("rules_compiled/malware/" + n)
                 rule = yara.load("rules_compiled/malware/" + n)
                 m = rule.match(filename)
                 if m:
                     ret += m
-            except:
-                print "yara internal error"
+            #Sony Special
+            #elif os.path.isdir("rules/malware/" + n):
+            #    if not os.path.exists("rules_compiled/malware/Operation_Blockbuster"):
+            #        os.mkdir("rules_compiled/malware/Operation_Blockbuster")
+            #        for n in os.listdir("rules/malware/Operation_Blockbuster/"):
+            #            if n is not 'mastersig':
+            #                rule = yara.compile("rules/malware/Operation_Blockbuster/" + n)
+            #                rule.save("rules_compiled/malware/Operation_Blockbuster/" + n)
+            #                rule = yara.load("rules_compiled/malware/Operation_Blockbuster/" + n)
+            #                m = rule.match(filename)
+            #                if m:
+            #                    ret += m
+            #            #elif n=='mastersig':
+            #            #    pass
+            #except:
+            #    print "Internal Yara Error"
+    else:
+        print "Using compiled file ..."
+        for n in os.listdir("rules_compiled/malware/"):
+            rule = yara.load("rules_compiled/malware/" + n)
+            m = rule.match(filename)
+            if m:
+                ret += m
     return ret
 
 def is_custom_rules(filename):
-    ret = []
-    if not os.path.exists("custom/customrulesed/"):
-        os.mkdir("custom/customrulesed/")
+    #i = 0 # 统计数量/Number of Statistics
+    ret = [] # 保存结果/Save Results
+    if not os.path.exists("custom/customrules/"):
+        os.mkdir("custom/customrules/")
         for n in os.listdir("custom/customrules/"):
-            try:
-                rule = yara.compile("custom/customrules/" + n)
-                rule.save("custom/customrulesed/" + n)
-                rule = yara.load("custom/customrulesed/" + n)
-                m = rule.match(filename)
-                if m:
-                    ret += m
-            except:
-                pass  # internal fatal error or warning
-        return ret
+            rule = yara.compile("custom/customrules/" + n)
+            rule.save("custom/customrules/" + n)
+            rule = yara.load("custom/customrules/" + n)
+            m = rule.match(filename)
+            if m:
+                ret += m
     else:
-        print "use compiled file"
-        for n in os.listdir("custom/customrulesed/"):
-            try:
-                rule = yara.load("custom/customrulesed/" + n)
-                m = rule.match(filename)
-                if m:
-                    ret += m
-            except yara.Error, e:
-                print "yara internal error", e.args[0]
-        return ret
+        print "Using compiled file ..."
+        for n in os.listdir("rules_compiled/customrules/"):
+            rule = yara.load("rules_compiled/customrules/" + n)
+            m = rule.match(filename)
+            if m:
+                ret += m
+            #except yara.Error, e:
+            #    print "Internal Yara Error", e.args[0]
+    return ret
 
 class CheckPacker(QtCore.QThread):
     numberSignal = QtCore.pyqtSignal(int, str)
@@ -190,7 +203,7 @@ class CheckPacker(QtCore.QThread):
         except sqlite3.Error, e:
             print "sqlite exec err", "\n", e.args[0]
             return -1
-    
+
     def run(self):
         print self.index
         pkdresult = is_file_packed(self.filename)
@@ -199,13 +212,13 @@ class CheckPacker(QtCore.QThread):
         if pkdresult:
             print "get pkdresult!"
             for n in pkdresult:
-                # 能输出描述则输出描述
-                # 否则直接输出规则名
+                # 能输出描述则输出描述/Can Output Description, Output Description
+                # 否则直接输出规则名/Otherwise the Direct Output Rule Name
                 # try:
                 #     result1.append("{} - {}".format(n, n.meta['description']))
                 # except:
                 result1.append(str(n))
-                # 最终直接输出评估结果，数据库里存详细内容
+                # 最终直接输出评估结果，数据库里存详细内容/Final Direct Output Evaluation Results, Database Store Details
             result["packed"] = result1
             ret = self.write2YaraDB(self.md5, result)
             if ret:
@@ -238,9 +251,9 @@ class CheckMalware(QtCore.QThread):
         except sqlite3.Error, e:
             print "sqlite exec err", "\n", e.args[0]
             return -1
-    
+
     def run(self):
-        # 匹配到spyeye的基本是debug文件
+        # 匹配到spyeye的基本是debug文件/The Basic Debug File is Matched to SpyEye
         malresult = is_malware(self.filename)
         atiresult = is_antidb_antivm(self.filename)
         result1 = []
@@ -268,7 +281,7 @@ class CheckMalware(QtCore.QThread):
         ret = self.write2YaraDB(self.md5, result)
         if ret:
             self.valueSignal.emit(1)
-        
+
 class CheckCrypto(QtCore.QThread):
     numberSignal = QtCore.pyqtSignal(int, str)
     valueSignal  = QtCore.pyqtSignal(int)
@@ -300,7 +313,7 @@ class CheckCrypto(QtCore.QThread):
         result1 = []
         result  = {}
         if cptresult:
-            print "get crypto!"
+            print "Encryption Used!"
             for n in cptresult:
                 # try:
                 #     result1.append("{} - {}".format(n, n.meta['description']))
@@ -342,7 +355,7 @@ class CheckWebshell(QtCore.QThread):
         result1 = []
         result  = {}
         if shellresult:
-            print "get webshell!"
+            print "Found webshell artifact!"
             for n in shellresult:
                 # try:
                 #     result1.append("{} - {}".format(n, n.meta['description']))
