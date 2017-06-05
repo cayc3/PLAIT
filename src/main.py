@@ -844,9 +844,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 # os.startfile(ffull)
                 # 打开文件夹并定位到文件/Open a Folder and Navigate to a File
                 print str(ffull) #.encode('cp936')
-		        estr = 'open /System/Library/CoreServices/Finder.app ' + str(fpath) #.encode('cp936')
+		estr = 'open /System/Library/CoreServices/Finder.app ' + str(fpath) #.encode('cp936')
                 #estr = 'explorer /select,' + str(ffull) #.encode('cp936')
-		        #estr = 'nautilus ' + str(fpath)
+		#estr = 'nautilus ' + str(fpath)
                 os.system(estr)
             elif action == item6:
                 # 设置item可编辑/Set Item to Edit
