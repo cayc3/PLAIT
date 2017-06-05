@@ -1,23 +1,23 @@
 #coding=utf-8
 
-from PyQt4 import QtGui, QtCore, Qt
-import matplotlib; matplotlib.use('Qt4Agg')
+from PyQt5 import QtGui, QtCore, QtWidgets
+import matplotlib; matplotlib.use('Qt5Agg')
 import matplotlib.pyplot as plt
 import os, sys, time
 import numpy
 sys.path.append("..")
 from UILib.machinelearn import Ui_Dialog
-from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas # matplotlib对PyQt4的支持
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas # matplotlib对PyQt4的支持/Matplotlib Support for PYQT4
 from matplotlib.figure import Figure
 from advanceoperate.malimgthread import ValidationResult
 
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-class Dialog(QtGui.QDialog):
+class Dialog(QtWidgets.QDialog):
 
     def __init__(self, parent=None):
-        QtGui.QWidget.__init__(self, parent)
+        QtWidgets.QWidget.__init__(self, parent)
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
 
@@ -54,14 +54,14 @@ class Dialog(QtGui.QDialog):
         self._canvas.draw()
 
     def _createFigures(self):
-        self._fig = Figure(figsize=(8, 6), dpi=100, tight_layout=False) 
-        self._fig.set_facecolor("#F5F5F5") # 背景色
+        self._fig = Figure(figsize=(8, 6), dpi=100, tight_layout=False)
+        self._fig.set_facecolor("#F5F5F5") # 背景色/Background Color
         self._fig.subplots_adjust(left=0, top=1, right=1, bottom=0) # Margins
-        self._canvas = FigureCanvas(self._fig) # 画布
-        self._ax = self._fig.add_subplot(111) # 增加subplot
+        self._canvas = FigureCanvas(self._fig) # 画布/Canvas
+        self._ax = self._fig.add_subplot(111) # 增加subplot/Increase subplot
         # self._ax.hold(True)
 
     def _createLayouts(self):
-        layout = QtGui.QHBoxLayout(self.frame)
+        layout = QtWidgets.QHBoxLayout(self.frame)
         layout.setContentsMargins(0, 0, 0, 0)
         layout.addWidget(self._canvas) # Add Matplotlib
