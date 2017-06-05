@@ -2,11 +2,11 @@
 
 class FlagSet(object):
 
-    # 扫描线程开始结束标识
-    scanstopflag = 1 # 0-停止 1-扫描
-    # 扫描完成标识
-    scandoneflag = 1 # 0-未完 1-完成
-    # 数据库扫描计数标识
+    # 扫描线程开始结束标识/Scan Thread Start Ending Identity
+    scanstopflag = 1 # 0-停止 1-扫描/0-Stop 1-Scan
+    # 扫描完成标识/Scan Complete Identification
+    scandoneflag = 1 # 0-未完 1-完成/0-Unfinished 1-Complete
+    # 数据库扫描计数标识/Database Scan Count Identification
     scansqlcount = 0
 
 class ImpAlert(object):
@@ -129,7 +129,7 @@ class ImpAlert(object):
 
 class YaraAlert(object):
 
-    # 恶意软件
+    # 恶意软件/Malware
     malalerts = {
         'spyeye':'debugged',
         'Str_Win32_Winsock2_Library':'network',
@@ -140,7 +140,7 @@ class YaraAlert(object):
         'suspicious_packer_section':'pack',
         'UPX':'pack'
     }
-    # 反调试
+    # 反调试/Reverse Debugging
     atialerts = {
         'anti_dbg':'debugged',
         'network_dropper':'download',
@@ -160,7 +160,7 @@ class YaraAlert(object):
         'inject_thread':'inject',
         'create_service':'service'
     }
-    # 加壳信息
+    # 加壳信息/Shell Information
     pkdalerts = {
         'Borland':'',
         'BobSoftMiniDelphiBoBBobSoft':'',
@@ -170,7 +170,7 @@ class YaraAlert(object):
         'UPX20030XMarkusOberhumerLaszloMolnarJohnReiser':'packed',
         'possible_includes_base64_packed_functions':'crypto'
     }
-    # 加密信息
+    # 加密信息/Encrypt Information
     cptalerts = {
         'contentis_base64':'crypto',
         'Big_Numbers0':'crypto',
@@ -189,7 +189,7 @@ class YaraAlert(object):
 
 class YaraDescription(object):
 
-    # 恶意软件
+    # 恶意软件/Malware
     malalerts = {
         'spyeye':'Debug information',
         'Str_Win32_Winsock2_Library':'Match Winsock 2 API library declaration',
@@ -199,7 +199,7 @@ class YaraDescription(object):
         'Powerkatz_DLL_Generic':'a Mimikatz version prepared to run in memory via Powershell',
         '':''
     }
-    # 反调试
+    # 反调试/Reverse Debugging
     atialerts = {
         'anti_dbg':'Checks if being debugged',
         'network_udp_sock':'Communications over UDP network',
@@ -218,7 +218,7 @@ class YaraDescription(object):
         'inject_thread':'Code injection with CreateRemoteThread in a remote process',
         'create_service':'Create a windows service'
     }
-    # 加壳信息
+    # 加壳信息/Shell Information
     pkdalerts = {
         'Borland':'',
         'BobSoftMiniDelphiBoBBobSoft':'',
@@ -228,7 +228,7 @@ class YaraDescription(object):
         'UPX20030XMarkusOberhumerLaszloMolnarJohnReiser':'',
         'possible_includes_base64_packed_functions':''
     }
-    # 加密信息
+    # 加密信息/Encrypt Information
     cptalerts = {
         'contentis_base64':'This rule finds for base64 strings',
     }
