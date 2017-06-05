@@ -2,36 +2,44 @@
 
 import sys, os
 import yara
-from PyQt4 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui
 import sqlite3
 # import updateclamav
 
 '''
-由clamav数据库更新规则
-预计放置在菜单栏中
+#由clamav数据库更新规则
+Updating Rules by ClamAV Database
+#预计放置在菜单栏中
+Expected to be Placed in the Menu Bar
 '''
 class UpdateClamav(QtCore.QThread):
-    
+
     def __init__(self, parent=None):
         super(UpdateClamav, self).__init__(parent)
 
     '''
-    更新数据库
-    数据库组成为base+daily
+    #更新数据库
+    Updating Database
+    #数据库组成为base+daily
+    Database Composition is base+daily
     '''
     def updateDatabase(self):
         pass
 
     '''
-    更新clamav特征
-    包含PE\Shell\Html
-    去除了对于OSX系mail等特征
+    #更新clamav特征
+    Updating ClamAV Features
+    #包含PE\Shell\Html
+    Include PE\Shell\Html
+    #去除了对于OSX系mail等特征
+    Removed Features Such as OS X Mail
     '''
     def updateSignatures(self):
         pass
 
 '''
-使用clamav规则检测
+#使用clamav规则检测
+Using CLAMAV Rules to Detect
 '''
 class CheckClamav(QtCore.QThread):
     numberSignal = QtCore.pyqtSignal(int, str)
@@ -56,7 +64,7 @@ class CheckClamav(QtCore.QThread):
             if m:
                 print m
         else:
-            print "generate yara rule failed"
-        
+            print "Generating Yara Rule Failed"
+
     def run(self):
         self.hitClamavRule()
