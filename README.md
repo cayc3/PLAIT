@@ -2,7 +2,7 @@ PLAIT - PyLance Artificial Intelligence Tool
 ========
 
 --------
-reference
+Reference
 --------
 https://github.com/zengrx/S.M.A.R.T
 
