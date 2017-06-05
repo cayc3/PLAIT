@@ -23,7 +23,7 @@ class TargetType:
     FLASH = 11
     JAVA = 12
 
-# yara规则格式
+# yara规则格式/Yara Rule Format
 yara_rule_template = '''rule %s
 {
     meta:
@@ -36,7 +36,7 @@ yara_rule_template = '''rule %s
 
 '''
 
-# 格式错误
+# 格式错误/Malformed
 class MalformedRuleError(Exception):
     pass
 
@@ -116,7 +116,7 @@ class YaraRule:
             return
 
         # In the version info:
-        # 还没在pe中找到合适的描述功能
+        # 还没在pe中找到合适的描述功能/No Suitable Description Function Found in PE
         if offset == "VI":
             #self._conditions.append("$a%d in (manape.version_info.start .. "
              #                       "manape.version_info.start + manape.version_info.size)" % index)
@@ -260,7 +260,7 @@ def parse_ndb(input, output, is_daily=False):
             for line in f:
                 data = line.rstrip("\n").split(":")
                 malware_name = data[0]
-                # PDF似乎无法在yara中编译通过
+                # PDF似乎无法在yara中编译通过/PDF Does Not Appear to be Compiled into Yara
                 if "Pdf" in malware_name:
                     break
 
@@ -274,7 +274,7 @@ def parse_ndb(input, output, is_daily=False):
                 # Ignore minfl & maxfl, since they represent ClamAV internal engine functionality levels.
 
                 # We only care about signatures for PE executables.
-                if target_type != TargetType.PE and target_type != TargetType.ANY and target_type != TargetType.ASCII and target_type != TargetType.HTML: 
+                if target_type != TargetType.PE and target_type != TargetType.ANY and target_type != TargetType.ASCII and target_type != TargetType.HTML:
                     continue
 
                 try:
@@ -350,4 +350,3 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
